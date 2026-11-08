@@ -21,6 +21,7 @@
 <meta name="twitter:title" content="Geeratya: keyboard-first terminal client for Jira Cloud">
 <meta name="twitter:description" content="A keyboard-first terminal client for Jira Cloud: Kanban board, backlog and issues in the terminal, with vim-style keys.">
 <meta name="twitter:image" content="https://geeratya.github.io/assets/social-preview.png">
+<meta name="twitter:image:alt" content="Geeratya logo and a Kanban board in the terminal">
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"SoftwareApplication","name":"Geeratya","description":"A keyboard-first terminal client for Jira Cloud: Kanban board, backlog and issues in the terminal, with vim-style keys.","url":"https://geeratya.github.io/","applicationCategory":"DeveloperApplication","operatingSystem":"Linux, Windows, macOS","license":"https://opensource.org/licenses/MIT","image":"https://geeratya.github.io/assets/social-preview.png","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}
 </script>
@@ -127,7 +128,7 @@ footer a{display:inline-flex;align-items:center;gap:.4rem}
 </style>
 </head>
 <body id="top">
-<!-- GitHub mark: Octicons "mark-github" (MIT licence, GitHub Inc.), used for links to the repository. -->
+<!-- GitHub mark: Octicons "mark-github", unaltered and used only to link to the GitHub repository, under GitHub's logo usage guidelines. -->
 <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false"><symbol id="gh" viewBox="0 0 16 16"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"/></symbol></svg>
 <a class="skip" href="#content">Skip to content</a>
 
@@ -168,7 +169,7 @@ footer a{display:inline-flex;align-items:center;gap:.4rem}
 </header>
 
 <section id="tour">
-<h2><span class="n">01 / TOUR</span>The everyday loop, from the keyboard</h2>
+<h2><span class="n" aria-hidden="true">01 / TOUR</span>The everyday loop, from the keyboard</h2>
 <p class="sub">The Jira web UI is slow and mouse-heavy for the things done many times a day: look at the board, move a card, open an issue, write a comment, create a sub-task. Geeratya does those in a terminal, fast. The screenshots are of the real UI against a fake Jira.</p>
 <div class="tour">
 
@@ -202,7 +203,7 @@ footer a{display:inline-flex;align-items:center;gap:.4rem}
 
 <div class="step">
 <figure class="win"><div class="bar" aria-hidden="true"><i></i><i></i><i></i></div>
-<img src="media/issue-comments.webp" width="1400" height="760" loading="lazy" decoding="async" alt="The comments of an issue, newest first, with author, age and text including a code block">
+<img src="media/issue-comments.webp" width="1400" height="360" loading="lazy" decoding="async" alt="The comments of an issue, newest first, with author, age and text">
 </figure>
 <div class="txt"><h3>Comments</h3><p>Add, edit and delete comments without leaving the terminal.</p></div>
 </div>
@@ -224,7 +225,7 @@ footer a{display:inline-flex;align-items:center;gap:.4rem}
 
 <!-- Features mirror README.md; update both together. -->
 <section id="features">
-<h2><span class="n">02 / FEATURES</span>Everything in the box</h2>
+<h2><span class="n" aria-hidden="true">02 / FEATURES</span>Everything in the box</h2>
 <p class="sub">The screens above are part of this list. The rest of it:</p>
 <ul class="more">
 <li>Done cutoff of a Kanban board: follows Jira's own "Hide done work items after" (read, never written), with a quick picker per tab (1 to 4 weeks, all)</li>
@@ -234,7 +235,6 @@ footer a{display:inline-flex;align-items:center;gap:.4rem}
 <li>Start target on the command line: <code>geeratya GEN-123</code>, <code>--board</code>, <code>--backlog</code>, <code>--jql</code>, <code>--filter</code> open one tab</li>
 <li>Command palette, configurable vim-style keys and full mouse support</li>
 <li>Settings screen: change the theme and the options visually, saved at once</li>
-<li>Copy text from the issue detail (description, comments, fields) to the system clipboard</li>
 </ul>
 <p>Attachments and images are shown as links that open in the browser, never rendered in the terminal.</p>
 <div class="out">
@@ -244,7 +244,7 @@ footer a{display:inline-flex;align-items:center;gap:.4rem}
 </section>
 
 <section id="install">
-<h2><span class="n">03 / INSTALL</span>Build it, connect it, press <kbd>?</kbd></h2>
+<h2><span class="n" aria-hidden="true">03 / INSTALL</span>Build it, connect it, press <kbd>?</kbd></h2>
 <p class="sub">Needs a Jira Cloud site, an Atlassian account on it and an API token. Any terminal works; truecolor looks best. No release is published yet, so for now build from source. Archives for Linux, Windows and macOS will be listed here once the first release is out; macOS is the least tested system.</p>
 <ol class="steps">
 <li>
@@ -272,7 +272,7 @@ geeratya --board "name"   # open a board</code></pre>
 </section>
 
 <section id="docs">
-<h2><span class="n">04 / DOCS</span>Read more</h2>
+<h2><span class="n" aria-hidden="true">04 / DOCS</span>Read more</h2>
 <ul class="docs">
 <li><a href="https://github.com/Aleksanderis/Geeratya/blob/main/docs/user-guide.md">User guide</a></li>
 <li><a href="https://github.com/Aleksanderis/Geeratya/blob/main/docs/keymap.md">Key reference</a></li>
