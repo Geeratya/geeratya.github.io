@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Geeratya: keyboard-first terminal client for Jira Cloud</title>
+<meta name="description" content="A keyboard-first terminal client for Jira Cloud: Kanban board, backlog and issues in the terminal, with vim-style keys.">
+<link rel="canonical" href="https://geeratya.github.io/">
+<meta name="robots" content="index, follow">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Geeratya">
+<meta property="og:title" content="Geeratya: keyboard-first terminal client for Jira Cloud">
+<meta property="og:description" content="A keyboard-first terminal client for Jira Cloud: Kanban board, backlog and issues in the terminal, with vim-style keys.">
+<meta property="og:url" content="https://geeratya.github.io/">
+<meta property="og:image" content="https://geeratya.github.io/assets/social-preview.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Geeratya name and a screenshot of a Kanban board in the terminal">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Geeratya: keyboard-first terminal client for Jira Cloud">
+<meta name="twitter:description" content="A keyboard-first terminal client for Jira Cloud: Kanban board, backlog and issues in the terminal, with vim-style keys.">
+<meta name="twitter:image" content="https://geeratya.github.io/assets/social-preview.png">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"SoftwareApplication","name":"Geeratya","description":"A keyboard-first terminal client for Jira Cloud: Kanban board, backlog and issues in the terminal, with vim-style keys.","url":"https://geeratya.github.io/","applicationCategory":"DeveloperApplication","operatingSystem":"Linux, Windows, macOS","license":"https://opensource.org/licenses/MIT","image":"https://geeratya.github.io/assets/social-preview.png","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}
+</script>
+<link rel="icon" href="assets/logo.svg" type="image/svg+xml">
+<link rel="icon" href="assets/favicon-32.png" sizes="32x32">
+<link rel="apple-touch-icon" href="assets/favicon-180.png">
+<style>
+:root{--bg:#1e1e2e;--fg:#cdd6f4;--muted:#a6adc8;--accent:#89b4fa;--panel:#181825;--border:#313244}
+@media (prefers-color-scheme:light){:root{--bg:#eff1f5;--fg:#4c4f69;--muted:#6c6f85;--accent:#1e66f5;--panel:#e6e9ef;--border:#ccd0da}}
+html{scroll-behavior:smooth;scroll-padding-top:4rem}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);font:16px/1.6 system-ui,sans-serif}
+nav.top{position:sticky;top:0;z-index:10;display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:.5rem 16px;background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(8px);border-bottom:1px solid var(--border)}
+nav.top a{color:var(--fg);text-decoration:none;display:inline-flex;align-items:center;gap:.4rem}
+nav.top a:hover{color:var(--accent)}
+nav.top .brand{font-weight:700;font-size:1.1rem}
+nav.top .links{display:flex;align-items:center;gap:1.1rem}
+@media (max-width:40rem){nav.top .links{gap:.8rem;font-size:.9rem}nav.top .links a.opt{display:none}}
+main{max-width:52rem;margin:0 auto;padding:2rem 16px 4rem}
+header{text-align:center}
+header img.logo{width:96px;height:96px}
+h1{margin:.5rem 0 0;font-size:2.4rem}
+h2{margin-top:2.5rem;border-bottom:1px solid var(--border);padding-bottom:.3rem}
+a{color:var(--accent)}
+.lead{color:var(--muted);font-size:1.15rem}
+.demo{display:block;width:100%;height:auto;border:1px solid var(--border);border-radius:8px}
+.note{color:var(--muted);font-size:.9rem;text-align:center}
+pre,code{font-family:ui-monospace,Menlo,Consolas,monospace}
+pre{background:var(--panel);border:1px solid var(--border);border-radius:6px;padding:.8rem 1rem;overflow-x:auto;white-space:pre-wrap;overflow-wrap:anywhere}
+code{background:var(--panel);padding:.1rem .3rem;border-radius:4px}
+pre code{padding:0;background:none}
+ul{padding-left:1.3rem}
+.cta a{display:inline-block;margin:.2rem .4rem;padding:.5rem 1rem;border:1px solid var(--accent);border-radius:6px;text-decoration:none}
+footer{margin-top:3rem;color:var(--muted);font-size:.9rem;text-align:center}
+footer p{margin:.4rem 0}
+</style>
+</head>
+<body id="top">
+<nav class="top" aria-label="Main">
+<a class="brand" href="#top"><img src="assets/logo.svg" alt="" width="24" height="24">Geeratya</a>
+<div class="links">
+<a href="#features">Features</a>
+<a href="#install">Install</a>
+<a class="opt" href="#docs">Docs</a>
+<a href="https://github.com/Aleksanderis/Geeratya">GitHub</a>
+</div>
+</nav>
+<main>
+<header>
+<img class="logo" src="assets/logo.svg" alt="Geeratya logo">
+<h1>Geeratya</h1>
+<p class="lead">A keyboard-first terminal client for Jira Cloud: your Kanban board, backlog and issues in the terminal, with vim-style keys. The mouse is optional but fully functional.</p>
+<p class="cta">
+<a href="https://github.com/Aleksanderis/Geeratya">Source on GitHub</a>
+<a href="#install">Install</a>
+</p>
+</header>
+
+<video class="demo" controls muted loop playsinline preload="metadata" poster="assets/social-preview.png" aria-label="Geeratya demo: a sprint board, an issue, a Kanban board and a status change">
+<source src="media/demo.webm" type="video/webm">
+<img class="demo" src="media/demo.gif" alt="Geeratya demo: a sprint board, an issue, a Kanban board and a status change">
+</video>
+<p class="note">Recorded from the real UI against a fake Jira. <a href="media/demo.gif">GIF version</a></p>
+
+<h2 id="why">Why</h2>
+<p>The Jira web UI is slow and mouse-heavy for the things done many times a day: look at the board, move a card, open an issue, write a comment, create a sub-task. Geeratya does those from the keyboard in a terminal, fast.</p>
+
+<!-- Features mirror README.md; update both together. -->
+<h2 id="features">Features</h2>
+<ul>
+<li>Kanban board with the board's own columns</li>
+<li>Done cutoff of a Kanban board: follows Jira's own "Hide done work items after" (read, never written), with a quick picker per tab (1 to 4 weeks, all)</li>
+<li>Backlog, with ranking</li>
+<li>Scrum: sprint board, backlog as sprints, move issues between sprints, create, start and complete sprints</li>
+<li>JQL search and saved filters as issue lists</li>
+<li>Issue view: description and comments as formatted text, sub-tasks, an epic's children, linked issues and remote links (Confluence and others)</li>
+<li>Change status, also by moving a card to another column</li>
+<li>Create, edit and delete epics, stories, tasks, bugs and sub-tasks, with each project's required fields</li>
+<li>Add, edit and delete comments</li>
+<li>Copy text from the issue detail (description, comments, fields) to the system clipboard</li>
+<li>Company-managed and team-managed projects alike</li>
+<li>Profiles: saved sites and accounts, one active at a time, quick switch</li>
+<li>Tabs over the active site, local cache so views open instantly</li>
+<li>Start target on the command line: <code>geeratya GEN-123</code>, <code>--board</code>, <code>--backlog</code>, <code>--jql</code>, <code>--filter</code> open one tab</li>
+<li>Command palette, configurable vim-style keys and full mouse support</li>
+<li>Settings screen: change the theme and the options visually, saved at once</li>
+</ul>
+<p>Attachments and images are shown as links that open in the browser, never rendered in the terminal.</p>
+<p>Not included: Scrum reports and charts (burndown, velocity), Jira Service Management, Jira Data Center or Server, several sites open at once, rendering images or files, Jira administration (projects, workflows, schemes, users, permissions), plugins.</p>
+
+<h2 id="install">Install</h2>
+<p>Needs a Jira Cloud site, an Atlassian account on it and an API token. Any terminal works; truecolor looks best. No release is published yet, so for now build from source. Archives for Linux, Windows and macOS will be listed here once the first release is out; macOS is the least tested system.</p>
+<p>Prerequisites: the .NET SDK version from <code>global.json</code> and the Native AOT prerequisites (Linux: <code>clang</code> and <code>zlib1g-dev</code>; Windows: "Desktop development with C++"; macOS: Xcode command line tools).</p>
+<pre><code>git clone https://github.com/Aleksanderis/Geeratya
+cd Geeratya
+dotnet publish src/Geeratya.Tui -c Release -o publish
+publish/geeratya</code></pre>
+<p>The API token is kept in the system secret store (libsecret on Linux, Credential Manager on Windows, Keychain on macOS) and never written to a config file.</p>
+
+<h2 id="quick-start">Quick start</h2>
+<pre><code>geeratya                  # add a profile with :profile add, then pick a board
+geeratya GEN-123          # open one issue
+geeratya --board "name"   # open a board</code></pre>
+<p><code>?</code> shows the keys of the current view, <code>:</code> opens the command palette, <code>q</code> quits.</p>
+
+<h2 id="docs">Docs</h2>
+<ul>
+<li><a href="https://github.com/Aleksanderis/Geeratya/blob/main/docs/user-guide.md">User guide</a></li>
+<li><a href="https://github.com/Aleksanderis/Geeratya/blob/main/docs/keymap.md">Key reference</a> and <a href="https://github.com/Aleksanderis/Geeratya/blob/main/docs/customising-keys.md">customising keys</a></li>
+<li><a href="https://github.com/Aleksanderis/Geeratya/blob/main/CONTRIBUTING.md">Contributing</a></li>
+</ul>
+
+<footer>
+<p>MIT License. No analytics, no cookies.</p>
+<p>Geeratya is an independent project and is not affiliated with or endorsed by Atlassian. Jira is a trademark of Atlassian.</p>
+</footer>
+</main>
+</body>
+</html>
