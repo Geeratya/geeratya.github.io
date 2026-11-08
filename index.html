@@ -34,6 +34,9 @@
 /* Palette comes from the logo: its green on a deep ink; the light theme is paper with a darker green. */
 :root{--bg:#0e1512;--panel:#141d18;--raise:#1b2720;--fg:#e6efe8;--muted:#9fb3a6;--accent:#a6e3a1;--on-accent:#0e1512;--line:#2a3a31;--shadow:0 18px 40px -20px #000}
 @media (prefers-color-scheme:light){:root{--bg:#f3f1ea;--panel:#eae7dc;--raise:#fffdf7;--fg:#17201b;--muted:#4b5a50;--accent:#1c6b3e;--on-accent:#fffdf7;--line:#cfcabb;--shadow:0 18px 40px -24px #5b5640}}
+/* Alternative palette, also from the logo: its ink (#1e1e2e) with a muted slate blue instead of the green. Switch with <html data-palette="slate">; remove the attribute for the green default. */
+:root[data-palette="slate"]{--bg:#1e1e2e;--panel:#25253a;--raise:#2d2d44;--fg:#dfe3f2;--muted:#a3a9c4;--accent:#9fb0e8;--on-accent:#1e1e2e;--line:#38384f;--shadow:0 18px 40px -20px #000}
+@media (prefers-color-scheme:light){:root[data-palette="slate"]{--bg:#f1f2f6;--panel:#e6e8ef;--raise:#fbfbfd;--fg:#1e1e2e;--muted:#515670;--accent:#3f4f9a;--on-accent:#fbfbfd;--line:#cdd0de;--shadow:0 18px 40px -24px #3b3f5c}}
 :root{--mono:ui-monospace,"JetBrains Mono","Cascadia Code","SF Mono",Menlo,Consolas,monospace;--serif:Charter,"Bitstream Charter","Sitka Text",Cambria,Georgia,serif}
 *{box-sizing:border-box}
 html{scroll-behavior:smooth;scroll-padding-top:1rem}
@@ -124,6 +127,7 @@ h3{font-size:1.1rem;margin-bottom:.4rem}
 
 footer{margin-top:5rem;padding-top:1.5rem;border-top:1px solid var(--line);color:var(--muted);font-size:.92rem}
 footer p{margin:.3rem 0}
+footer .coffee a{display:inline}
 footer a{display:inline-flex;align-items:center;gap:.4rem}
 </style>
 </head>
@@ -160,12 +164,11 @@ footer a{display:inline-flex;align-items:center;gap:.4rem}
 </ul>
 <figure class="win">
 <div class="bar" aria-hidden="true"><i></i><i></i><i></i></div>
-<video width="1400" height="760" controls muted playsinline preload="metadata" poster="media/board.webp" aria-label="Geeratya demo: a sprint board, an issue, a Kanban board and a status change">
+<video width="1920" height="1040" controls muted playsinline preload="metadata" poster="media/board.webp" aria-label="Geeratya demo: a sprint board, an issue, a Kanban board and a status change">
 <source src="media/demo.webm" type="video/webm">
-<img src="media/demo.gif" alt="Geeratya demo: a sprint board, an issue, a Kanban board and a status change" width="960" height="521">
+<img src="media/demo.gif" alt="Geeratya demo: a sprint board, an issue, a Kanban board and a status change" width="1100" height="596">
 </video>
 </figure>
-<p class="note">Recorded from the real UI against a fake Jira. <a href="media/demo.gif">GIF version</a></p>
 </header>
 
 <section id="tour">
@@ -175,35 +178,35 @@ footer a{display:inline-flex;align-items:center;gap:.4rem}
 
 <div class="step">
 <figure class="win"><div class="bar" aria-hidden="true"><i></i><i></i><i></i></div>
-<img src="media/board.webp" width="1400" height="760" loading="lazy" decoding="async" alt="Kanban board with four columns (To Do, In Progress, In Review, Done), each holding cards with epic, summary, labels, type and story points">
+<img src="media/board.webp" width="1920" height="1040" loading="lazy" decoding="async" alt="Kanban board with four columns (To Do, In Progress, In Review, Done), each holding cards with epic, summary, labels, type and story points">
 </figure>
 <div class="txt"><h3>Kanban board</h3><p>The board's own columns, with cards you can move. Moving a card to another column changes its status.</p></div>
 </div>
 
 <div class="step">
 <figure class="win"><div class="bar" aria-hidden="true"><i></i><i></i><i></i></div>
-<img src="media/backlog.webp" width="1400" height="760" loading="lazy" decoding="async" alt="Backlog as sprints: an active sprint with its goal and issues, the next sprint, and the backlog, with status, assignee, points and epic columns">
+<img src="media/backlog.webp" width="1920" height="1040" loading="lazy" decoding="async" alt="Backlog as sprints: an active sprint with its goal and issues, the next sprint, and the backlog, with status, assignee, points and epic columns">
 </figure>
 <div class="txt"><h3>Backlog and sprints</h3><p>The backlog, with ranking. On Scrum boards: the backlog as sprints, moving issues between sprints, and creating, starting and completing sprints.</p></div>
 </div>
 
 <div class="step">
 <figure class="win"><div class="bar" aria-hidden="true"><i></i><i></i><i></i></div>
-<img src="media/jql-search.webp" width="1400" height="760" loading="lazy" decoding="async" alt="A JQL query as a tab, listing four matching issues with key, type, summary and epic">
+<img src="media/jql-search.webp" width="1920" height="1040" loading="lazy" decoding="async" alt="A JQL query as a tab, listing four matching issues with key, type, summary and epic">
 </figure>
 <div class="txt"><h3>JQL and saved filters</h3><p>A JQL query or a saved filter opens as an issue list in its own tab. Tabs sit over the active site, and a local cache lets views open instantly.</p></div>
 </div>
 
 <div class="step">
 <figure class="win"><div class="bar" aria-hidden="true"><i></i><i></i><i></i></div>
-<img src="media/issue-detail.webp" width="1400" height="760" loading="lazy" decoding="async" alt="Issue view with Description, Comments and Details sections; the description with its acceptance criteria shown as formatted text">
+<img src="media/issue-detail.webp" width="1920" height="1040" loading="lazy" decoding="async" alt="Issue view with Description, Comments and Details sections; the description with its acceptance criteria shown as formatted text">
 </figure>
 <div class="txt"><h3>Issue view</h3><p>Description and comments as formatted text, plus sub-tasks, an epic's children, linked issues and remote links. Copy text from it to the system clipboard.</p></div>
 </div>
 
 <div class="step">
 <figure class="win"><div class="bar" aria-hidden="true"><i></i><i></i><i></i></div>
-<img src="media/issue-comments.webp" width="1400" height="760" loading="lazy" decoding="async" alt="The comments of an issue, newest first, with author, age and text">
+<img src="media/issue-comments.webp" width="1920" height="1040" loading="lazy" decoding="async" alt="The comments of an issue, newest first, with author, age and text">
 </figure>
 <div class="txt"><h3>Comments</h3><p>Add, edit and delete comments without leaving the terminal.</p></div>
 </div>
@@ -211,10 +214,10 @@ footer a{display:inline-flex;align-items:center;gap:.4rem}
 <div class="step wide">
 <div class="duo">
 <figure class="win"><div class="bar" aria-hidden="true"><i></i><i></i><i></i></div>
-<img src="media/status-picker.webp" width="1400" height="760" loading="lazy" decoding="async" alt="A small dialog titled Change status, with the target status In Review typed into a filter">
+<img src="media/status-picker.webp" width="1920" height="1040" loading="lazy" decoding="async" alt="A small dialog titled Change status, with the target status In Review typed into a filter">
 </figure>
 <figure class="win"><div class="bar" aria-hidden="true"><i></i><i></i><i></i></div>
-<img src="media/status-changed.webp" width="1400" height="760" loading="lazy" decoding="async" alt="The issue list again after the change, with the issue now in the new status">
+<img src="media/status-changed.webp" width="1920" height="1040" loading="lazy" decoding="async" alt="The issue list again after the change, with the issue now in the new status">
 </figure>
 </div>
 <div class="txt"><h3>Change status</h3><p>Pick the target status from a filtered list, or move the card on the board. Jira has no undo, so check the target before you accept.</p></div>
@@ -237,10 +240,6 @@ footer a{display:inline-flex;align-items:center;gap:.4rem}
 <li>Settings screen: change the theme and the options visually, saved at once</li>
 </ul>
 <p>Attachments and images are shown as links that open in the browser, never rendered in the terminal.</p>
-<div class="out">
-<h3>Not included</h3>
-<p>Scrum reports and charts (burndown, velocity), Jira Service Management, Jira Data Center or Server, several sites open at once, rendering images or files, Jira administration (projects, workflows, schemes, users, permissions), plugins.</p>
-</div>
 </section>
 
 <section id="install">
@@ -283,6 +282,7 @@ geeratya --board "name"   # open a board</code></pre>
 
 <footer>
 <p><a href="https://github.com/Aleksanderis/Geeratya"><svg class="gh" aria-hidden="true"><use href="#gh"/></svg>Aleksanderis/Geeratya</a> · MIT License · This page uses no analytics or cookies.</p>
+<p class="coffee">Geeratya is free. If it saves you time, <a href="https://buymeacoffee.com/aleksanderis" rel="noopener">you can buy me a coffee</a>.</p>
 <p>Geeratya is an independent project and is not affiliated with or endorsed by Atlassian. Jira is a trademark of Atlassian.</p>
 </footer>
 </main>
