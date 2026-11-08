@@ -118,10 +118,6 @@ h3{font-size:1.1rem;margin-bottom:.4rem}
 .more li::before{content:">";position:absolute;left:0;font-family:var(--mono);color:var(--accent)}
 
 /* Install */
-.steps{counter-reset:s;display:grid;gap:1.6rem;margin-top:1.5rem;padding:0;list-style:none}
-.steps>li{counter-increment:s;position:relative;padding-left:3rem}
-.steps>li::before{content:counter(s);position:absolute;left:0;top:0;width:2rem;height:2rem;border-radius:50%;background:var(--accent);color:var(--on-accent);font:700 .95rem/2rem var(--mono);text-align:center}
-.steps p{margin:0 0 .6rem}
 .routes{display:grid;gap:1.2rem;margin:1.5rem 0;padding:0;list-style:none}
 .routes h3{margin:0 0 .4rem;font:600 1rem var(--mono)}
 .routes .note{margin:.4rem 0 0;color:var(--muted);font-size:.95rem}
@@ -131,7 +127,9 @@ h3{font-size:1.1rem;margin-bottom:.4rem}
 .copy:hover{border-color:var(--accent);color:var(--accent)}
 .copy[hidden]{display:none}
 .soon{display:none}
-[data-pending] .soon{display:inline}
+[data-pending] .soon,[data-winget-pending] .soon-winget{display:inline}
+.soon-winget{display:none}
+[data-winget-pending] .zip{display:none}
 .docs{display:flex;flex-wrap:wrap;gap:.6rem;margin:1.2rem 0 0;padding:0;list-style:none;font-family:var(--mono);font-size:.95rem}
 .docs a{display:inline-block;padding:.45rem .9rem;border:1px solid var(--line);border-radius:8px;text-decoration:none}
 .docs a:hover{border-color:var(--accent)}
@@ -264,10 +262,10 @@ footer a{display:inline-flex;align-items:center;gap:.4rem}
 <h2><span class="n" aria-hidden="true">03 / INSTALL</span>Install it, connect it, press <kbd>?</kbd></h2>
 <p class="sub">Needs a Jira Cloud site, an Atlassian account on it and an API token. Any terminal works; truecolor looks best.<span class="soon"> No release is published yet: every route below is available with the first release.</span></p>
 <ul class="routes">
-<li><h3>macOS and Linux</h3><div class="cmd"><pre><code>brew install aleksanderis/tap/geeratya</code></pre><button type="button" class="copy" hidden>Copy</button></div>
+<li><h3>macOS (Apple silicon) and Linux (x64)</h3><div class="cmd"><pre><code>brew install aleksanderis/tap/geeratya</code></pre><button type="button" class="copy" aria-label="Copy the brew command" hidden>Copy</button></div>
 <p class="note">Manual macOS download: the binary is not notarised, run <code>xattr -d com.apple.quarantine geeratya</code> once.</p></li>
-<li><h3>Windows</h3><div class="cmd"><pre><code>winget install Aleksanderis.Geeratya</code></pre><button type="button" class="copy" hidden>Copy</button></div>
-<p class="note"><span class="soon">winget is pending review, so for now </span>use the .zip from <a href="https://github.com/Aleksanderis/Geeratya/releases">Releases</a>.</p></li>
+<li data-winget-pending><h3>Windows</h3><div class="cmd"><pre><code>winget install Aleksanderis.Geeratya</code></pre><button type="button" class="copy" aria-label="Copy the winget command" hidden>Copy</button></div>
+<p class="note"><span class="soon-winget">winget is pending review, so for now </span><span class="zip">Or </span>use the .zip from <a href="https://github.com/Aleksanderis/Geeratya/releases">Releases</a>.</p></li>
 <li><h3>Linux packages</h3><p class="note">The .deb, .rpm and .tar.gz are on <a href="https://github.com/Aleksanderis/Geeratya/releases">Releases</a>.</p></li>
 </ul>
 <p>Then start it with <code>geeratya</code>. The <a href="https://github.com/Aleksanderis/Geeratya/blob/main/docs/user-guide.md#start-and-connect">user guide</a> walks through the first start: an API token, a profile and the first board. <kbd>?</kbd> shows the keys of the current view, <kbd>q</kbd> quits.</p>
