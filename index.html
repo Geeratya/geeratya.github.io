@@ -269,8 +269,8 @@ footer a{display:inline-flex;align-items:center;gap:.4rem;vertical-align:middle}
 <h2><span class="n" aria-hidden="true">03 / INSTALL</span>Install it, connect it, press <kbd>?</kbd></h2>
 <p class="sub">Needs a Jira Cloud site, an Atlassian account on it and an API token. Any terminal works; truecolor looks best. One line installs the latest release; run it again to update.<span class="soon"> No release is published yet: every route below is available with the first release.</span></p>
 <ul class="routes">
-<li><h3>Linux (x64, arm64)</h3><div class="cmd"><pre><code>curl -fsSL https://raw.githubusercontent.com/Aleksanderis/Geeratya/main/scripts/install.sh | sh</code></pre><button type="button" class="copy" aria-label="Copy the Linux install command" hidden>Copy</button></div>
-<p class="note">Uses the native package on Arch / Omarchy, Debian / Ubuntu and Fedora (needs root or sudo), otherwise puts <code>geeratya</code> in <code>~/.local/bin</code>.</p></li>
+<li><h3>Linux (x64, arm64) and macOS (Apple silicon)</h3><div class="cmd"><pre><code>curl -fsSL https://raw.githubusercontent.com/Aleksanderis/Geeratya/main/scripts/install.sh | sh</code></pre><button type="button" class="copy" aria-label="Copy the Linux install command" hidden>Copy</button></div>
+<p class="note">Checks the download against the release checksums and puts <code>geeratya</code> in <code>~/.local/bin</code>, no root or sudo. Needs glibc (not Alpine). For a native package use the .deb, .rpm or Arch package below.</p></li>
 <li><h3>Windows (x64, arm64)</h3><div class="cmd"><pre><code>irm https://raw.githubusercontent.com/Aleksanderis/Geeratya/main/scripts/install.ps1 | iex</code></pre><button type="button" class="copy" aria-label="Copy the Windows install command" hidden>Copy</button></div>
 <p class="note">Installs to <code>%LOCALAPPDATA%\Geeratya</code> and adds it to your user <code>PATH</code>, no admin rights.</p></li>
 </ul>
