@@ -32,15 +32,15 @@
 <link rel="icon" href="assets/favicon-192.png" sizes="192x192" type="image/png">
 <link rel="apple-touch-icon" href="assets/favicon-180.png">
 <style>
-/* Palette: slate (blue-grey on the logo ink #1e1e2e) is the default. Theme: dark by default, light under prefers-color-scheme:light, or forced with <html data-theme="light|dark"> (the toggle sets it; absent means follow the system).
-   Alternative: the logo green, behind <html data-palette="green">. */
-:root{color-scheme:dark light;--bg:#1e1e2e;--panel:#25253a;--raise:#2d2d44;--fg:#dfe3f2;--muted:#a3a9c4;--accent:#9fb0e8;--on-accent:#1e1e2e;--line:#38384f;--shadow:0 18px 40px -20px #000}
-@media (prefers-color-scheme:light){:root:not([data-theme="dark"]){--bg:#f1f2f6;--panel:#e6e8ef;--raise:#fbfbfd;--fg:#1e1e2e;--muted:#515670;--accent:#3f4f9a;--on-accent:#fbfbfd;--line:#cdd0de;--shadow:0 18px 40px -24px #3b3f5c}}
-:root[data-theme="light"]{color-scheme:light;--bg:#f1f2f6;--panel:#e6e8ef;--raise:#fbfbfd;--fg:#1e1e2e;--muted:#515670;--accent:#3f4f9a;--on-accent:#fbfbfd;--line:#cdd0de;--shadow:0 18px 40px -24px #3b3f5c}
+/* Palette: calm forest green (deep green-black dark, warm paper light) with neutral warm off-white text; green only for accent, links, buttons, frames and small details. Theme: dark by default, light under prefers-color-scheme:light, or forced with <html data-theme="light|dark"> (the toggle sets it; absent means follow the system).
+   Alternative: slate (blue-grey on the logo ink #1e1e2e), behind <html data-palette="slate">. */
+:root{color-scheme:dark light;--bg:#0f1511;--panel:#151d18;--raise:#1c2620;--fg:#e9e6de;--muted:#aaaea3;--accent:#6fae84;--on-accent:#0c120e;--line:#2b382f;--term:#101512;--shadow:0 18px 40px -20px #000}
+@media (prefers-color-scheme:light){:root:not([data-theme="dark"]){--bg:#f3f1ea;--panel:#e8e6dc;--raise:#fbfaf5;--fg:#1d211e;--muted:#555b53;--accent:#2f6a47;--on-accent:#fbfaf5;--line:#cdcabc;--shadow:0 18px 40px -24px #4c4a38}}
+:root[data-theme="light"]{color-scheme:light;--bg:#f3f1ea;--panel:#e8e6dc;--raise:#fbfaf5;--fg:#1d211e;--muted:#555b53;--accent:#2f6a47;--on-accent:#fbfaf5;--line:#cdcabc;--shadow:0 18px 40px -24px #4c4a38}
 :root[data-theme="dark"]{color-scheme:dark}
-:root[data-palette="green"]{--bg:#0e1512;--panel:#141d18;--raise:#1b2720;--fg:#e6efe8;--muted:#9fb3a6;--accent:#a6e3a1;--on-accent:#0e1512;--line:#2a3a31;--shadow:0 18px 40px -20px #000}
-@media (prefers-color-scheme:light){:root[data-palette="green"]:not([data-theme="dark"]){--bg:#f3f1ea;--panel:#eae7dc;--raise:#fffdf7;--fg:#17201b;--muted:#4b5a50;--accent:#1c6b3e;--on-accent:#fffdf7;--line:#cfcabb;--shadow:0 18px 40px -24px #5b5640}}
-:root[data-palette="green"][data-theme="light"]{--bg:#f3f1ea;--panel:#eae7dc;--raise:#fffdf7;--fg:#17201b;--muted:#4b5a50;--accent:#1c6b3e;--on-accent:#fffdf7;--line:#cfcabb;--shadow:0 18px 40px -24px #5b5640}
+:root[data-palette="slate"]{--bg:#1e1e2e;--panel:#25253a;--raise:#2d2d44;--fg:#dfe3f2;--muted:#a3a9c4;--accent:#9fb0e8;--on-accent:#1e1e2e;--line:#38384f;--term:#1e1e2e;--shadow:0 18px 40px -20px #000}
+@media (prefers-color-scheme:light){:root[data-palette="slate"]:not([data-theme="dark"]){--bg:#f1f2f6;--panel:#e6e8ef;--raise:#fbfbfd;--fg:#1e1e2e;--muted:#515670;--accent:#3f4f9a;--on-accent:#fbfbfd;--line:#cdd0de;--shadow:0 18px 40px -24px #3b3f5c}}
+:root[data-palette="slate"][data-theme="light"]{--bg:#f1f2f6;--panel:#e6e8ef;--raise:#fbfbfd;--fg:#1e1e2e;--muted:#515670;--accent:#3f4f9a;--on-accent:#fbfbfd;--line:#cdd0de;--shadow:0 18px 40px -24px #3b3f5c}
 :root{--mono:ui-monospace,"JetBrains Mono","Cascadia Code","SF Mono",Menlo,Consolas,monospace;--serif:Charter,"Bitstream Charter","Sitka Text",Cambria,Georgia,serif}
 *{box-sizing:border-box}
 html{scroll-behavior:smooth;scroll-padding-top:1rem}
@@ -58,9 +58,9 @@ pre{margin:0;padding:1rem 1.2rem;background:var(--panel);border:1px solid var(--
 pre code{background:none;border:0;padding:0}
 
 /* Frame: a terminal window, echoing the logo */
-.win{margin:0;border:2px solid var(--accent);border-radius:12px;background:#1e1e2e;overflow:hidden;box-shadow:var(--shadow)}
+.win{margin:0;border:2px solid var(--accent);border-radius:12px;background:var(--term);overflow:hidden;box-shadow:var(--shadow)}
 .win .bar{height:28px;display:flex;align-items:center;gap:6px;padding:0 12px;background:var(--accent)}
-.win .bar i{width:9px;height:9px;border-radius:50%;background:#1e1e2e}
+.win .bar i{width:9px;height:9px;border-radius:50%;background:var(--term)}
 .win img,.win video{display:block;width:100%;height:auto}
 
 /* Layout: a left rail on wide screens, a top bar on narrow ones */
@@ -125,10 +125,12 @@ h3{font-size:1.1rem;margin-bottom:.4rem}
 .docs a{display:inline-block;padding:.45rem .9rem;border:1px solid var(--line);border-radius:8px;text-decoration:none}
 .docs a:hover{border-color:var(--accent)}
 
-.theme{font:inherit;color:var(--fg);background:var(--raise);border:1px solid var(--line);border-radius:8px;padding:.3rem .7rem;cursor:pointer}
-.theme:hover{border-color:var(--accent)}
+.theme{display:inline-flex;align-items:center;justify-content:center;width:2.2rem;height:2.2rem;padding:0;color:var(--fg);background:var(--raise);border:1px solid var(--line);border-radius:8px;cursor:pointer}
+.theme[hidden]{display:none}
+.theme:hover{border-color:var(--accent);color:var(--accent)}
 .theme:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
-.theme b{color:var(--accent);font-weight:700}
+.theme svg{width:1.15rem;height:1.15rem;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;display:none}
+.theme[data-mode="system"] .i-sys,.theme[data-mode="light"] .i-sun,.theme[data-mode="dark"] .i-moon{display:block}
 footer{margin-top:5rem;padding-top:1.5rem;border-top:1px solid var(--line);color:var(--muted);font-size:.92rem}
 footer p{margin:.3rem 0}
 footer .coffee a{display:inline}
@@ -148,7 +150,7 @@ footer a{display:inline-flex;align-items:center;gap:.4rem}
 <li><a href="#install" data-n="03 ">Install</a></li>
 <li><a href="#docs" data-n="04 ">Docs</a></li>
 </ol>
-<button class="theme" type="button" hidden id="theme" aria-label="Colour theme: system. Activate to change.">Theme: <b>system</b></button>
+<button class="theme" type="button" hidden id="theme" data-mode="system" aria-label="Colour theme: system. Activate to switch to light." title="Colour theme: system. Click to switch to light."><svg class="i-sys" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M8 20h8M12 16v4"/></svg><svg class="i-sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg><svg class="i-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 14.5A8 8 0 0 1 9.5 4 8 8 0 1 0 20 14.5Z"/></svg></button>
 <a class="gh-link" href="https://github.com/Aleksanderis/Geeratya"><svg class="gh" aria-hidden="true"><use href="#gh"/></svg>GitHub</a>
 </nav>
 
@@ -294,7 +296,7 @@ geeratya --board "name"   # open a board</code></pre>
 <script>
 (function(){var b=document.getElementById("theme"),r=document.documentElement,o=["system","light","dark"];
 function cur(){var t=r.dataset.theme;return t==="light"||t==="dark"?t:"system"}
-function show(){var c=cur();b.lastChild.textContent=c;b.hidden=false;b.setAttribute("aria-label","Colour theme: "+c+". Activate to change.")}
+function show(){var c=cur(),x="Colour theme: "+c+". Click to switch to "+o[(o.indexOf(c)+1)%3]+".";b.dataset.mode=c;b.hidden=false;b.title=x;b.setAttribute("aria-label",x.replace("Click","Activate"))}
 b.addEventListener("click",function(){var n=o[(o.indexOf(cur())+1)%3];if(n==="system")delete r.dataset.theme;else r.dataset.theme=n;try{if(n==="system")localStorage.removeItem("theme");else localStorage.setItem("theme",n)}catch(e){}show()});
 show()})();
 </script>
