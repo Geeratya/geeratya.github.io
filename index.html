@@ -28,7 +28,7 @@
 <link rel="apple-touch-icon" href="assets/favicon-180.png">
 <style>
 :root{--bg:#1e1e2e;--fg:#cdd6f4;--muted:#a6adc8;--accent:#89b4fa;--panel:#181825;--border:#313244}
-@media (prefers-color-scheme:light){:root{--bg:#eff1f5;--fg:#4c4f69;--muted:#6c6f85;--accent:#1e66f5;--panel:#e6e9ef;--border:#ccd0da}}
+@media (prefers-color-scheme:light){:root{--bg:#eff1f5;--fg:#4c4f69;--muted:#5c5f77;--accent:#1555d8;--panel:#e6e9ef;--border:#ccd0da}}
 html{scroll-behavior:smooth;scroll-padding-top:4rem}
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
 *{box-sizing:border-box}
@@ -70,7 +70,7 @@ footer p{margin:.4rem 0}
 </nav>
 <main>
 <header>
-<img class="logo" src="assets/logo.svg" alt="Geeratya logo">
+<img class="logo" src="assets/logo.svg" alt="" width="96" height="96">
 <h1>Geeratya</h1>
 <p class="lead">A keyboard-first terminal client for Jira Cloud: your Kanban board, backlog and issues in the terminal, with vim-style keys. The mouse is optional but fully functional.</p>
 <p class="cta">
@@ -79,7 +79,7 @@ footer p{margin:.4rem 0}
 </p>
 </header>
 
-<video class="demo" controls muted loop playsinline preload="metadata" poster="assets/social-preview.png" aria-label="Geeratya demo: a sprint board, an issue, a Kanban board and a status change">
+<video class="demo" width="1400" height="760" controls muted playsinline preload="metadata" poster="assets/social-preview.png" aria-label="Geeratya demo: a sprint board, an issue, a Kanban board and a status change">
 <source src="media/demo.webm" type="video/webm">
 <img class="demo" src="media/demo.gif" alt="Geeratya demo: a sprint board, an issue, a Kanban board and a status change">
 </video>
@@ -113,17 +113,18 @@ footer p{margin:.4rem 0}
 
 <h2 id="install">Install</h2>
 <p>Needs a Jira Cloud site, an Atlassian account on it and an API token. Any terminal works; truecolor looks best. No release is published yet, so for now build from source. Archives for Linux, Windows and macOS will be listed here once the first release is out; macOS is the least tested system.</p>
-<p>Prerequisites: the .NET SDK version from <code>global.json</code> and the Native AOT prerequisites (Linux: <code>clang</code> and <code>zlib1g-dev</code>; Windows: "Desktop development with C++"; macOS: Xcode command line tools).</p>
+<p>Prerequisites: the .NET 10 SDK (the version in <code>global.json</code>) and the Native AOT prerequisites (Linux: <code>clang</code> and <code>zlib1g-dev</code>; Windows: "Desktop development with C++"; macOS: Xcode command line tools).</p>
 <pre><code>git clone https://github.com/Aleksanderis/Geeratya
 cd Geeratya
 dotnet publish src/Geeratya.Tui -c Release -o publish
 publish/geeratya</code></pre>
-<p>The API token is kept in the system secret store (libsecret on Linux, Credential Manager on Windows, Keychain on macOS) and never written to a config file.</p>
+<p>The API token is kept in the system secret store (libsecret on Linux, Credential Manager on Windows, Keychain on macOS) and never written to a config file. Linux needs <code>secret-tool</code> (package <code>libsecret-tools</code>); without a secret store set <code>GEERATYA_TOKEN</code>.</p>
 
 <h2 id="quick-start">Quick start</h2>
 <pre><code>geeratya                  # add a profile with :profile add, then pick a board
 geeratya GEN-123          # open one issue
 geeratya --board "name"   # open a board</code></pre>
+<p>To connect, create a plain API token (no scopes) at <a href="https://id.atlassian.com/manage-profile/security/api-tokens">id.atlassian.com</a>, then add a profile with <code>:profile add</code>: a name, your site (<code>your-site.atlassian.net</code>), your account email and the token. More in the <a href="https://github.com/Aleksanderis/Geeratya/blob/main/docs/user-guide.md#start-and-connect">user guide</a>.</p>
 <p><code>?</code> shows the keys of the current view, <code>:</code> opens the command palette, <code>q</code> quits.</p>
 
 <h2 id="docs">Docs</h2>
@@ -134,7 +135,7 @@ geeratya --board "name"   # open a board</code></pre>
 </ul>
 
 <footer>
-<p>MIT License. No analytics, no cookies.</p>
+<p>MIT License. This page uses no analytics or cookies.</p>
 <p>Geeratya is an independent project and is not affiliated with or endorsed by Atlassian. Jira is a trademark of Atlassian.</p>
 </footer>
 </main>
