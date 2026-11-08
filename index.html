@@ -121,6 +121,7 @@ h3{font-size:1.1rem;margin-bottom:.4rem}
 .routes{display:grid;gap:1.2rem;margin:1.5rem 0;padding:0;list-style:none}
 .routes h3{margin:0 0 .4rem;font:600 1rem var(--mono)}
 .routes .note{margin:.4rem 0 0;color:var(--muted);font-size:.95rem}
+.other{margin:2rem 0 0;font:600 1.1rem var(--mono)}
 .cmd{display:flex;align-items:stretch;gap:.5rem}
 .cmd pre{flex:1;margin:0;overflow-x:auto}
 .copy{font-family:var(--mono);font-size:.85rem;padding:0 .8rem;color:var(--fg);background:var(--raise);border:1px solid var(--line);border-radius:8px;cursor:pointer}
@@ -266,13 +267,26 @@ footer a{display:inline-flex;align-items:center;gap:.4rem;vertical-align:middle}
 
 <section id="install" data-pending>
 <h2><span class="n" aria-hidden="true">03 / INSTALL</span>Install it, connect it, press <kbd>?</kbd></h2>
-<p class="sub">Needs a Jira Cloud site, an Atlassian account on it and an API token. Any terminal works; truecolor looks best.<span class="soon"> No release is published yet: every route below is available with the first release.</span></p>
+<p class="sub">Needs a Jira Cloud site, an Atlassian account on it and an API token. Any terminal works; truecolor looks best. One line installs the latest release; run it again to update.<span class="soon"> No release is published yet: every route below is available with the first release.</span></p>
 <ul class="routes">
-<li><h3>macOS (Apple silicon) and Linux (x64)</h3><div class="cmd"><pre><code>brew install aleksanderis/tap/geeratya</code></pre><button type="button" class="copy" aria-label="Copy the brew command" hidden>Copy</button></div>
-<p class="note">Manual macOS download: the binary is not notarised, run <code>xattr -d com.apple.quarantine geeratya</code> once.</p></li>
-<li data-winget-pending><h3>Windows</h3><div class="cmd"><pre><code>winget install Aleksanderis.Geeratya</code></pre><button type="button" class="copy" aria-label="Copy the winget command" hidden>Copy</button></div>
-<p class="note"><span class="soon-winget">winget is pending review, so for now </span><span class="zip">Or </span>use the .zip from <a href="https://github.com/Aleksanderis/Geeratya/releases">Releases</a>.</p></li>
-<li><h3>Linux packages</h3><p class="note">The .deb, .rpm and .tar.gz are on <a href="https://github.com/Aleksanderis/Geeratya/releases">Releases</a>.</p></li>
+<li><h3>Linux (x64, arm64)</h3><div class="cmd"><pre><code>curl -fsSL https://raw.githubusercontent.com/Aleksanderis/Geeratya/main/scripts/install.sh | sh</code></pre><button type="button" class="copy" aria-label="Copy the Linux install command" hidden>Copy</button></div>
+<p class="note">Uses the native package on Arch / Omarchy, Debian / Ubuntu and Fedora (needs root or sudo), otherwise puts <code>geeratya</code> in <code>~/.local/bin</code>.</p></li>
+<li><h3>Windows (x64, arm64)</h3><div class="cmd"><pre><code>irm https://raw.githubusercontent.com/Aleksanderis/Geeratya/main/scripts/install.ps1 | iex</code></pre><button type="button" class="copy" aria-label="Copy the Windows install command" hidden>Copy</button></div>
+<p class="note">Installs to <code>%LOCALAPPDATA%\Geeratya</code> and adds it to your user <code>PATH</code>, no admin rights.</p></li>
+</ul>
+<h3 class="other">Other ways to install</h3>
+<p class="note">Files for the routes below are on <a href="https://github.com/Aleksanderis/Geeratya/releases">Releases</a>.</p>
+<ul class="routes">
+<li><h3>Homebrew (macOS and Linux)</h3><div class="cmd"><pre><code>brew install aleksanderis/tap/geeratya</code></pre><button type="button" class="copy" aria-label="Copy the brew command" hidden>Copy</button></div></li>
+<li data-winget-pending><h3>Windows, winget</h3><div class="cmd"><pre><code>winget install Aleksanderis.Geeratya</code></pre><button type="button" class="copy" aria-label="Copy the winget command" hidden>Copy</button></div>
+<p class="note"><span class="soon-winget">winget is pending review, so for now </span><span class="zip">Or </span>use the Windows archive below.</p></li>
+<li><h3>Debian / Ubuntu</h3><div class="cmd"><pre><code>sudo apt install ./geeratya_&lt;version&gt;_amd64.deb   # _arm64.deb on arm64</code></pre><button type="button" class="copy" aria-label="Copy the apt command" hidden>Copy</button></div></li>
+<li><h3>Fedora / RHEL</h3><div class="cmd"><pre><code>sudo dnf install ./geeratya-&lt;version&gt;-1.x86_64.rpm   # .aarch64.rpm on arm64</code></pre><button type="button" class="copy" aria-label="Copy the dnf command" hidden>Copy</button></div></li>
+<li><h3>Arch / Omarchy</h3><div class="cmd"><pre><code>sudo pacman -U geeratya-&lt;version&gt;-1-x86_64.pkg.tar.zst   # aarch64 on arm64</code></pre><button type="button" class="copy" aria-label="Copy the pacman command" hidden>Copy</button></div>
+<p class="note">An AUR package (<code>geeratya-bin</code>) is planned.</p></li>
+<li><h3>Windows and Linux archives (x64, arm64)</h3><p class="note">Take the <code>.zip</code> (Windows) or <code>.tar.gz</code> (Linux) for your CPU, unpack it and put <code>geeratya</code> on your <code>PATH</code>.</p></li>
+<li><h3>macOS (Apple silicon)</h3><div class="cmd"><pre><code>tar xzf geeratya-&lt;version&gt;-osx-arm64.tar.gz</code></pre><button type="button" class="copy" aria-label="Copy the tar command" hidden>Copy</button></div>
+<p class="note">Put <code>geeratya</code> on your <code>PATH</code>. macOS should work, but is not fully tested yet, and the binary is unsigned, so Gatekeeper asks you to allow it: run <code>xattr -d com.apple.quarantine geeratya</code> once.</p></li>
 </ul>
 <p>Then start it with <code>geeratya</code>. The <a href="https://github.com/Aleksanderis/Geeratya/blob/main/docs/user-guide.md#start-and-connect">user guide</a> walks through the first start: an API token, a profile and the first board. <kbd>?</kbd> shows the keys of the current view, <kbd>q</kbd> quits.</p>
 </section>
