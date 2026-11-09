@@ -127,6 +127,7 @@ h3{font-size:1.1rem;margin-bottom:.4rem}
 .copy{font-family:var(--mono);font-size:.85rem;padding:0 .8rem;color:var(--fg);background:var(--raise);border:1px solid var(--line);border-radius:8px;cursor:pointer}
 .copy:hover{border-color:var(--accent);color:var(--accent)}
 .copy[hidden]{display:none}
+.copy[data-failed]{border-color:#c0392b;color:#c0392b}
 .soon{display:none}
 [data-pending] .soon,[data-winget-pending] .soon-winget{display:inline}
 .soon-winget{display:none}
@@ -319,7 +320,15 @@ b.addEventListener("click",function(){var n=o[(o.indexOf(cur())+1)%3];if(n==="sy
 show()})();
 </script>
 <script>
-document.querySelectorAll(".copy").forEach(function(b){b.hidden=false;b.addEventListener("click",function(){var t=b.previousElementSibling.textContent;if(navigator.clipboard){navigator.clipboard.writeText(t).then(function(){b.textContent="Copied";setTimeout(function(){b.textContent="Copy"},1500)},function(){})}})});
+(function(){
+function legacy(t){var a=document.createElement("textarea"),ok=false;a.value=t;a.setAttribute("readonly","");a.style.cssText="position:fixed;top:0;left:0;opacity:0";document.body.appendChild(a);a.select();a.setSelectionRange(0,t.length);try{ok=document.execCommand("copy")}catch(e){}document.body.removeChild(a);return ok}
+function copy(t){return new Promise(function(res,rej){
+function fall(){legacy(t)?res():rej()}
+if(navigator.clipboard&&navigator.clipboard.writeText){try{navigator.clipboard.writeText(t).then(res,fall)}catch(e){fall()}}else fall()})}
+function sel(n){try{var r=document.createRange();r.selectNodeContents(n);var s=getSelection();s.removeAllRanges();s.addRange(r)}catch(e){}}
+document.querySelectorAll(".copy").forEach(function(b){b.hidden=false;b.addEventListener("click",function(){
+var pre=b.previousElementSibling,t=pre.textContent.trim();
+copy(t).then(function(){b.textContent="Copied";b.removeAttribute("data-failed")},function(){b.textContent="Copy failed, select the text";b.setAttribute("data-failed","");sel(pre)}).then(function(){clearTimeout(b._t);b._t=setTimeout(function(){b.textContent="Copy";b.removeAttribute("data-failed")},b.hasAttribute("data-failed")?4000:1500)})})})})();
 </script>
 </body>
 </html>
